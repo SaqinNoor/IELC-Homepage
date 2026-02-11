@@ -322,3 +322,46 @@ if (nav) {
         }
     });
 }
+
+// 9. Mobile Menu Logic
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+
+        if (mobileMenu.classList.contains('active')) {
+            // Animate Links In
+            gsap.to(mobileLinks, {
+                y: 0,
+                duration: 0.5,
+                stagger: 0.1,
+                ease: 'power3.out',
+                delay: 0.2
+            });
+        } else {
+            // Reset Links
+            gsap.to(mobileLinks, {
+                y: '100%',
+                duration: 0.3,
+                ease: 'power3.in'
+            });
+        }
+    });
+
+    // Close menu on link click
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            gsap.to(mobileLinks, {
+                y: '100%',
+                duration: 0.3,
+                ease: 'power3.in'
+            });
+        });
+    });
+}

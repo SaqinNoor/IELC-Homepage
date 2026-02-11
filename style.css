@@ -316,6 +316,101 @@ html.transition-mode .hero-title span {
   transform-origin: left;
 }
 
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  /* Above mobile menu overlay */
+  padding: 10px;
+}
+
+.menu-bar {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: var(--color-white);
+  margin-bottom: 6px;
+  transition: all 0.3s ease;
+}
+
+.menu-bar:last-child {
+  margin-bottom: 0;
+}
+
+/* Hamburger Animation (3 Lines) */
+.menu-toggle.active .menu-bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .menu-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .menu-bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-black);
+  z-index: 999;
+  /* Below toggle, above content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav-links {
+  text-align: center;
+}
+
+.mobile-nav-links li {
+  margin-bottom: 2rem;
+  overflow: hidden;
+  /* For reveal animation */
+}
+
+.mobile-nav-links a {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-white);
+  transform: translateY(100%);
+  /* Start hidden */
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-links a:hover {
+  color: var(--color-red);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -1006,6 +1101,94 @@ html.transition-mode .hero-title span {
   box-shadow: 0 10px 30px rgba(230, 57, 70, 0.1);
 }
 
+/* Mobile Enhancements */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .hero-title {
+    font-size: clamp(3rem, 10vw, 5rem);
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .stat-item {
+    flex: 1 1 40%;
+  }
+
+  /* Grids */
+  .explore-grid,
+  .ec-grid,
+  .ec-grid--2,
+  .events-grid,
+  .about-milestones {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  /* Horizontal Scroll Fallback */
+  .pin-wrap-container {
+    height: auto;
+    overflow: visible;
+  }
+
+  .pin-wrap {
+    height: auto;
+    flex-direction: column;
+    padding: 4rem 1.5rem;
+    width: 100%;
+  }
+
+  .pin-section-intro {
+    width: 100%;
+    margin-bottom: 3rem;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .pin-section-intro h2 {
+    font-size: 3rem;
+  }
+
+  .service-card {
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Moderator */
+  .moderator-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .moderator-img {
+    aspect-ratio: 1;
+    /* Square on mobile */
+  }
+
+  .moderator-content blockquote {
+    font-size: 1.5rem;
+  }
+
+  /* Touch Optimizations */
+  .cursor,
+  .cursor-follower {
+    display: none;
+  }
+
+  a,
+  button {
+    cursor: pointer;
+  }
+}
+
 .event-image {
   width: 100%;
   aspect-ratio: 16/9;
@@ -1060,4 +1243,15 @@ html.transition-mode .hero-title span {
   letter-spacing: 0.1em;
   margin-top: auto;
   /* Push to bottom */
+}
+
+/* Generic Section Title (Legacy of Excellence) */
+.section-title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 2rem;
+  /* Increased spacing */
+  line-height: 1.1;
+  text-transform: uppercase;
+  display: inline-block;
 }
