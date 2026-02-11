@@ -37,11 +37,18 @@ html.lenis body {
   pointer-events: none;
 }
 
+html,
+body,
+#smooth-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
 body {
   font-family: var(--font-main);
   background-color: var(--color-black);
   color: var(--color-white);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   cursor: none;
 }
@@ -409,6 +416,14 @@ html.transition-mode .hero-title span {
   .menu-toggle {
     display: block;
   }
+}
+
+section,
+header,
+footer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Hero Section */
