@@ -10,12 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./style.css" />
+  <script>
+    // Instant Transition Check to prevent flash
+    if (sessionStorage.getItem('ielc-transition-active')) {
+      document.documentElement.classList.add('transition-mode');
+    }
+  </script>
 </head>
 
 <body>
   <!-- Custom Cursor -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
+  <div class="page-transition"></div>
 
   <!-- Ambient Background -->
   <div class="ambient-light"></div>

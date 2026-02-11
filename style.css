@@ -204,17 +204,72 @@ img {
 
 /* Navigation */
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem 5%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* Page Transition Overlay */
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-red);
+  z-index: 99999;
+  pointer-events: none;
+  transform: translateY(-100%);
+  /* Hidden by default, JS will control when to show */
+}
+
+/* Instant Transition States (Handled by Inline Script) */
+html.transition-mode .page-transition {
+  transform: translateY(0) !important;
+  /* Force cover immediately */
+  /* Use !important to ensure it overrides default state before JS runs */
+}
+
+html.transition-mode .loader {
+  display: none !important;
+}
+
+html.transition-mode .hero-title span {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* Back Button (Sub-pages) */
+.back-btn {
+  position: fixed;
+  bottom: 3rem;
+  left: 3rem;
+  z-index: 900;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  border-radius: 50px;
+  background-color: transparent;
   color: var(--color-white);
-  transition: background-color 0.3s, backdrop-filter 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-btn:hover {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+  color: var(--color-white);
 }
 
 .nav.scrolled {

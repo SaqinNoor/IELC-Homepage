@@ -9,14 +9,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-D_Y8Zd8a.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Ov9PUpE9.css">
+  <script>
+    // Instant Transition Check to prevent flash
+    if (sessionStorage.getItem('ielc-transition-active')) {
+      document.documentElement.classList.add('transition-mode');
+    }
+  </script>
+  <script type="module" crossorigin src="/assets/index-BzG1FIya.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BX5eaeMp.css">
 </head>
 
 <body>
   <!-- Custom Cursor -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
+  <div class="page-transition"></div>
 
   <!-- Ambient Background -->
   <div class="ambient-light"></div>
