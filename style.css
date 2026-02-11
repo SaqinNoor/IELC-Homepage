@@ -357,6 +357,10 @@ html.transition-mode .hero-title span {
   -webkit-text-stroke: 1.5px var(--color-red);
   font-style: italic;
   font-weight: 300;
+  padding-right: 0.1em;
+  /* Add space for italic slant */
+  margin-right: -0.1em;
+  /* Offset for centering */
 }
 
 .hero-stats {
@@ -645,6 +649,15 @@ html.transition-mode .hero-title span {
   padding: 6rem 0 2rem;
   position: relative;
   z-index: 2;
+}
+
+.footer--dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.footer--dark .footer-bottom {
+  border-top-color: rgba(255, 255, 255, 0.1);
 }
 
 .footer-content-wrapper {
