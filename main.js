@@ -23,6 +23,23 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
+// 1.1 Smooth Scroll to Anchors
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            lenis.scrollTo(targetElement, {
+                offset: 0,
+                duration: 1.5,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            });
+        }
+    });
+});
+
 // 2. Custom Cursor Logic
 const cursor = document.querySelector('.cursor');
 const follower = document.querySelector('.cursor-follower');
@@ -97,56 +114,48 @@ magnetics.forEach((magnetic) => {
     });
 });
 
-// 4. Loading Animation
+// 4. Loading Animation (SVG Draw)
 const tlLoader = gsap.timeline();
 
 tlLoader
-    .to('.loader-progress', {
-        width: '100%',
-        duration: 1.5,
+    .to('.logo-path', {
+        strokeDashoffset: 0,
+        duration: 1.8, /* Faster */
         ease: 'power2.inOut',
+        stagger: 0.05
     })
-    .to('.loader-text', {
-        y: -50,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power2.in',
+    .to('.logo-path', {
+        fill: (i, target) => target.classList.contains('cls-1') ? '#E63946' : '#ffffff',
+        duration: 0.4,
+        ease: 'power1.out'
     })
     .to('.loader', {
         y: '-100%',
-        duration: 1,
+        duration: 1.0,
         ease: 'power4.inOut',
-    }, '-=0.3')
-    .to('.hero-title span', { // Fixed from .from() to .to()
+        delay: 0.1
+    })
+    .to('.hero-title span', {
         y: 0,
         opacity: 1,
-        duration: 1,
+        duration: 1.5,
         stagger: 0.1,
         ease: 'power3.out',
-    }, '-=0.5');
+    }, '-=0.6')
+    // 6. Stats Counter Animation (Chained to Loader)
+    .to('.stat-number', {
+        innerHTML: (i, el) => el.getAttribute('data-target'),
+        duration: 2,
+        snap: { innerHTML: 1 },
+        ease: 'power1.out',
+        stagger: 0.2
+    }, '-=1.0');
 
-// 5. Stats Counter Animation
-const stats = document.querySelectorAll('.stat-number');
+// 5. Removed Hero Parallax logic as per request
 
-stats.forEach((stat) => {
-    const target = +stat.getAttribute('data-target');
+// 6. Stats logic moved to timeline above
 
-    ScrollTrigger.create({
-        trigger: stat,
-        start: 'top 80%',
-        once: true,
-        onEnter: () => {
-            gsap.to(stat, {
-                innerHTML: target,
-                duration: 2,
-                snap: { innerHTML: 1 },
-                ease: 'power1.out',
-            });
-        },
-    });
-});
-
-// 6. Reveal Paragraphs
+// 7. Reveal Paragraphs
 const revealParagraphs = document.querySelectorAll('.reveal-paragraph');
 
 revealParagraphs.forEach((p) => {
@@ -163,35 +172,37 @@ revealParagraphs.forEach((p) => {
     });
 });
 
-// 7. Horizontal Scroll (What We Do)
+// 8. Horizontal Scroll (What We Do)
 // Only animate on desktop, fallback css handles mobile
 if (window.innerWidth > 768) {
     const race = document.querySelector('.pin-wrap');
 
-    // Calculate width to scroll: scrollWidth - clientWidth + padding buffer
-    function getScrollAmount() {
-        let raceWidth = race.scrollWidth;
-        return -(raceWidth - window.innerWidth + 100);
+    if (race) {
+        // Calculate width to scroll: scrollWidth - clientWidth + padding buffer
+        function getScrollAmount() {
+            let raceWidth = race.scrollWidth;
+            return -(raceWidth - window.innerWidth + 100);
+        }
+
+        const tween = gsap.to(race, {
+            x: getScrollAmount,
+            duration: 3,
+            ease: "none"
+        });
+
+        ScrollTrigger.create({
+            trigger: ".pin-wrap-container",
+            start: "top top",
+            end: () => `+=${getScrollAmount() * -1}`,
+            pin: true,
+            animation: tween,
+            scrub: 1,
+            invalidateOnRefresh: true,
+        });
     }
-
-    const tween = gsap.to(race, {
-        x: getScrollAmount,
-        duration: 3,
-        ease: "none"
-    });
-
-    ScrollTrigger.create({
-        trigger: ".pin-wrap-container",
-        start: "top top",
-        end: () => `+=${getScrollAmount() * -1}`,
-        pin: true,
-        animation: tween,
-        scrub: 1,
-        invalidateOnRefresh: true,
-    });
 }
 
-// 8. Milestones Stagger
+// 9. Milestones Stagger
 gsap.from('.milestone-card', {
     y: 50,
     opacity: 0,
@@ -203,7 +214,7 @@ gsap.from('.milestone-card', {
     },
 });
 
-// 9. Moderator Image Parallax
+// 10. Moderator Image Parallax
 gsap.from('.moderator-img', {
     scale: 1.2,
     filter: 'blur(10px)',
@@ -215,12 +226,14 @@ gsap.from('.moderator-img', {
     },
 });
 
-// 10. Nav Change on Scroll
+// 11. Nav Change on Scroll
 const nav = document.querySelector('.nav');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-});
+if (nav) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+}
