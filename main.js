@@ -216,6 +216,22 @@ document.querySelectorAll('a').forEach(link => {
     });
 });
 
+// C. Browser Back/Forward Cache Handling (bfcache)
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        // Page was restored from cache with curtain potentially down
+        document.documentElement.classList.remove('transition-mode');
+        gsap.set('.page-transition', { y: '-100%' });
+
+        // Ensure loader is hidden too
+        const hasLoader = document.querySelector('.loader');
+        if (hasLoader) gsap.set('.loader', { y: '-100%' });
+
+        // Ensure content is visible
+        gsap.set('.hero-title span', { y: 0, opacity: 1 });
+    }
+});
+
 // 6. ScrollTriggered Reveal Animations
 // Paragraphs
 document.querySelectorAll('.reveal-paragraph').forEach((p) => {
