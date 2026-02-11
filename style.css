@@ -631,8 +631,219 @@ img {
   opacity: 0.6;
 }
 
-/* Responsive */
+/* Hero Actions */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  z-index: 10;
+  position: relative;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  /* Force pointer for buttons even with custom cursor */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border: 1px solid var(--color-red);
+}
+
+.btn--primary:hover {
+  background-color: transparent;
+  color: var(--color-red);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* Explore Section */
+.explore-section {
+  padding: 0 0 10rem;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  position: relative;
+  z-index: 2;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.explore-card {
+  position: relative;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  color: var(--color-white);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem;
+  background-color: #000;
+  /* Fallback */
+}
+
+.explore-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+  opacity: 0.6;
+}
+
+.explore-card:hover .explore-card-bg {
+  transform: scale(1.1);
+  opacity: 0.4;
+}
+
+.explore-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.explore-card h3 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.explore-card p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.explore-arrow {
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.explore-card:hover .explore-arrow {
+  transform: translateX(10px);
+  color: var(--color-red);
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-card {
+    height: 400px;
+  }
+}
+
+/* Executive Committee Section */
+.ec-section {
+  padding-bottom: 10rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.ec-group {
+  margin-bottom: 8rem;
+}
+
+.ec-role-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  opacity: 0.8;
+}
+
+.ec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.ec-grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.ec-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.ec-card:hover {
+  background: rgba(230, 57, 70, 0.1);
+  border-color: var(--color-red);
+  transform: translateY(-5px);
+}
+
+.ec-dept {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-red);
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.ec-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.ec-position {
+  font-size: 1.1rem;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .ec-grid--2 {
+    grid-template-columns: 1fr;
+  }
+
   .hero-title {
     font-size: 3rem;
   }
@@ -644,7 +855,6 @@ img {
 
   .moderator-layout {
     grid-template-columns: 1fr;
-    gap: 3rem;
   }
 
   .nav-links {
