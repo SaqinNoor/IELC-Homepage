@@ -219,9 +219,9 @@ document.querySelectorAll('a').forEach(link => {
 // C. Browser Back/Forward Cache Handling (bfcache)
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-        // Page was restored from cache with curtain potentially down
+        // Page was restored from cache. ensure curtain is covering then animate reveal
         document.documentElement.classList.remove('transition-mode');
-        gsap.set('.page-transition', { y: '-100%' });
+        gsap.set('.page-transition', { y: 0 }); // Force cover first
 
         // Ensure loader is hidden too
         const hasLoader = document.querySelector('.loader');
@@ -229,6 +229,14 @@ window.addEventListener('pageshow', (event) => {
 
         // Ensure content is visible
         gsap.set('.hero-title span', { y: 0, opacity: 1 });
+
+        // Animate reveal
+        gsap.to('.page-transition', {
+            y: '-100%',
+            duration: 1.0,
+            ease: 'power4.inOut',
+            delay: 0.1
+        });
     }
 });
 
