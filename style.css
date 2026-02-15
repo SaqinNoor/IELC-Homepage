@@ -1,4 +1,4 @@
-/* CSS Reset & Variables */
+﻿/* CSS Reset & Variables */
 :root {
   --color-black: #000000;
   --color-white: #ffffff;
@@ -1332,4 +1332,91 @@ footer {
   line-height: 1.1;
   text-transform: uppercase;
   display: inline-block;
+}
+
+/* Committee Switcher */
+.committee-switcher-wrapper {
+  text-align: center;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 6rem;
+  position: relative;
+  z-index: 10;
+}
+
+.committee-switcher {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem;
+  border-radius: 100px;
+  position: relative;
+}
+
+.committee-link {
+  padding: 0.8rem 2rem;
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  border-radius: 100px;
+  position: relative;
+}
+
+/* Slanted Divider */
+.committee-link:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -0.5px;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(20deg);
+  transition: opacity 0.3s ease;
+}
+
+.committee-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.committee-link.active {
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
+.committee-link.active::after,
+.committee-link.active+.committee-link::after {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .committee-switcher-wrapper {
+    margin-bottom: 4rem;
+    padding: 0 1.5rem;
+  }
+
+  .committee-switcher {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.3rem;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    justify-content: flex-start;
+  }
+
+  .committee-switcher::-webkit-scrollbar {
+    display: none;
+  }
+
+  .committee-link {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
 }

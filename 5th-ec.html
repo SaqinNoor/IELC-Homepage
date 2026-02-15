@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5th Executive Committee - Ideal English Language Club</title>
+    <link rel="icon" type="image/svg+xml" href="/IELC-logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+        // Instant Transition Check
+        if (sessionStorage.getItem('ielc-transition-active')) {
+            document.documentElement.classList.add('transition-mode');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="page-transition"></div>
+    <div class="ambient-light"></div>
+    <div class="noise-overlay"></div>
+
+    <nav class="nav">
+        <div class="nav-logo">
+            <a href="index.html"><img src="/IELC-logo.svg" alt="IELC Logo" class="logo-img" /></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <a href="index.html" class="back-btn magnetic">← Back to Home</a>
+
+    <section class="hero" style="min-height: 50vh; padding-top: 15vh;">
+        <div class="hero-content">
+            <h1 class="hero-title" style="font-size: clamp(3rem, 10vw, 8rem);">
+                <span>Executive</span>
+                <span class="highlight">Committee</span>
+            </h1>
+
+            <div class="committee-switcher-wrapper">
+                <div class="committee-switcher magnetic-wrap">
+                    <a href="ec.html" class="committee-link">Current (9th)</a>
+                    <a href="8th-ec.html" class="committee-link">8th EC</a>
+                    <a href="7th-ec.html" class="committee-link">7th EC</a>
+                    <a href="6th-ec.html" class="committee-link">6th EC</a>
+                    <a href="5th-ec.html" class="committee-link active">5th EC</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Committee Grid -->
+    <section class="ec-section">
+        <div class="container">
+
+            <!-- High Command -->
+            <div class="ec-group">
+                <h2 class="ec-role-title">President & General Secretary</h2>
+                <div class="ec-grid ec-grid--2">
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Muntasir Mahmud.jpg" alt="Muntasir Mahmud" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <div class="ec-info">
+                                <h3 class="ec-name">Muntasir Mahmud</h3>
+                                <p class="ec-position">President</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Muzammel Abir.jpg" alt="Muzammel Abir" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <div class="ec-info">
+                                <h3 class="ec-name">Muzammel Abir</h3>
+                                <p class="ec-position">General Secretary</p>
+                            </div>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/muzammel.abir15" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vice Presidents -->
+            <div class="ec-group">
+                <h2 class="ec-role-title">Vice Presidents</h2>
+                <div class="ec-grid">
+                    <!-- Admin -->
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Faiaz Karim Zahin.jpg" alt="Faiaz Karim Zahin" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Administration</p>
+                            <h3 class="ec-name">Faiaz Karim Zahin</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/faiyazkarim14" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Sadia Siddique.jpg" alt="Sadia Siddique" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Administration</p>
+                            <h3 class="ec-name">Sadia Siddique</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/aayat.farzaana.19" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PNP -->
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Tajrian Khan.jpg" alt="Tajrian Khan" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Press & Publications</p>
+                            <h3 class="ec-name">Tajrian Khan</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/tajriaaan" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ICT -->
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Yeara Alam Boishakhi.jpg" alt="Yeara Alam Boishakhi" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">ICT</p>
+                            <h3 class="ec-name">Yeara Alam Boishakhi</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/mim.tahanaz" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- POE -->
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Tahmid Ferdous Apourbo.jpg" alt="Tahmid Ferdous Apourbo" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Planning, Organising & Execution</p>
+                            <h3 class="ec-name">Tahmid Ferdous Apourbo</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/tahmidferdous18" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Mahi Al Noman.jpg" alt="Mahi Al Noman" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Planning, Organising & Execution</p>
+                            <h3 class="ec-name">Mahi Al Noman</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/mahi.alam.9674" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AGS -->
+            <div class="ec-group">
+                <h2 class="ec-role-title">Associate General Secretaries</h2>
+                <div class="ec-grid">
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Maisha Ahmed.jpg" alt="Maisha Ahmed" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <h3 class="ec-name">Maisha Ahmed</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/maisha.ahmed.148" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Sayeed Azam.jpg" alt="Sayeed Azam" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <h3 class="ec-name">Sayeed Azam</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/sayeedazammahi000" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Shifa Binte Ahsan.jpg" alt="Shifa Binte Ahsan" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <h3 class="ec-name">Shifa Binte Ahsan</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/shifa.binte" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Ahnaf Siam.jpg" alt="Ahnaf Siam" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <h3 class="ec-name">Ahnaf Siam</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/siam.bhuiyan.545" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Md Samiullah Labib.jpg" alt="Md Samiullah Labib" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <h3 class="ec-name">Md Samiullah Labib</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/mdsamiullah.labib" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Rizwanur Rahman Ovee.jpg" alt="Rizwanur Rahman Ovee" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <h3 class="ec-name">Rizwanur Rahman Ovee</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/ashrafulovee.ashrafulrahman" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secretaries -->
+            <div class="ec-group">
+                <h2 class="ec-role-title">Secretaries</h2>
+                <div class="ec-grid">
+                    <!-- Admin -->
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Sheikh Saad Ahammad.jpg" alt="Sheikh Saad Ahammad" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Administration</p>
+                            <h3 class="ec-name">Sheikh Saad Ahammad</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/sheikhsaad001" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PNP -->
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Shaker Rahman.jpg" alt="Shaker Rahman" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Press & Publications</p>
+                            <h3 class="ec-name">Shaker Rahman</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/shaker.rahman.58" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ICT -->
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Arshehi Mustafa.jpg" alt="Arshehi Mustafa" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">ICT</p>
+                            <h3 class="ec-name">Arshehi Mustafa</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/arshehi" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organising -->
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Kazi Mistakul.jpg" alt="Kazi Mistakul" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Organising</p>
+                            <h3 class="ec-name">Kazi Mistakul</h3>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Tasnim Ishraque.jpg" alt="Tasnim Ishraque" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Organising</p>
+                            <h3 class="ec-name">Tasnim Ishraque</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/tishraque" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Ramisa Tarannum.jpg" alt="Ramisa Tarannum" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Organising</p>
+                            <h3 class="ec-name">Ramisa Tarannum</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/ramisa.tarannum.568" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Sadman Shahriar.jpg" alt="Sadman Shahriar" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Organising</p>
+                            <h3 class="ec-name">Sadman Shahriar</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/sadman.sharar.54" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Festival -->
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Jubayer Rahman Rafin.jpg" alt="Jubayer Rahman Rafin" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Festival</p>
+                            <h3 class="ec-name">Jubayer Rahman Rafin</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/jubayerx18" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Raiyan Tasrif.jpg" alt="Raiyan Tasrif" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Festival</p>
+                            <h3 class="ec-name">Raiyan Tasrif</h3>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Shairi Rahman.jpg" alt="Shairi Rahman" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Festival</p>
+                            <h3 class="ec-name">Shairi Rahman</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/shairi.rahman.79" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Aminur Rahman Abid.jpg" alt="Aminur Rahman Abid" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Festival</p>
+                            <h3 class="ec-name">Aminur Rahman Abid</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/profile.php?id=100012779854524" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Salek Mahmud Tanvir.jpg" alt="Salek Mahmud Tanvir" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Festival</p>
+                            <h3 class="ec-name">Salek Mahmud Tanvir</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/salekmahmud.tanvir" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Nusrat Tarannum Nidhi.jpg" alt="Nusrat Tarannum Nidhi" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Festival</p>
+                            <h3 class="ec-name">Nusrat Tarannum Nidhi</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/nusrat.tarannum.790" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Office -->
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Farjana Jarin.jpg" alt="Farjana Jarin" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Office</p>
+                            <h3 class="ec-name">Farjana Jarin</h3>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Ittesam Jawad Khan.jpg" alt="Ittesam Jawad Khan" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Office</p>
+                            <h3 class="ec-name">Ittesam Jawad Khan</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/ittesam.jawad.khan" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-card magnetic">
+                        <div class="ec-image">
+                            <img src="/5th EC/Talha Ibne Taleb.jpg" alt="Talha Ibne Taleb" loading="lazy">
+                        </div>
+                        <div class="ec-content">
+                            <p class="ec-dept">Office</p>
+                            <h3 class="ec-name">Talha Ibne Taleb</h3>
+                            <div class="ec-social">
+                                <a href="https://www.facebook.com/talhaibna.taleb.1" class="ec-social-link"
+                                    aria-label="Facebook Profile" target="_blank">
+                                    <svg class="ec-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12c0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact" class="footer footer--dark">
+        <div class="container">
+            <div class="footer-bottom" style="border: none;">
+                <p>&copy; 2026 A.K.M. Saqin Noor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>
