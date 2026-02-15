@@ -259,7 +259,7 @@ html.transition-mode .hero-title span {
   bottom: 3rem;
   left: 3rem;
   z-index: 900;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -267,16 +267,14 @@ html.transition-mode .hero-title span {
   border-radius: 50px;
   background-color: transparent;
   color: var(--color-white);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--color-white);
   text-decoration: none;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
 }
 
 .back-btn:hover {
-  background-color: var(--color-red);
-  border-color: var(--color-red);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 .nav.scrolled {
@@ -972,31 +970,63 @@ footer {
 
 .ec-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
 .ec-grid--2 {
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .ec-card {
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem;
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(5px);
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ec-image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  position: relative;
+  background-color: #1a1a1a;
+}
+
+.ec-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.ec-card:hover .ec-image img {
+  transform: scale(1.05);
+}
+
+.ec-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
 }
 
 .ec-card:hover {
-  background: rgba(230, 57, 70, 0.1);
   border-color: var(--color-red);
   transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .ec-dept {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-red);
@@ -1090,6 +1120,39 @@ footer {
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   display: inline-block;
+}
+
+/* Social Button */
+.ec-social {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ec-social-link {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  text-decoration: none;
+}
+
+.ec-social-link:hover {
+  color: #fff;
+  background: #1877F2;
+  transform: translateY(-2px);
+}
+
+.ec-social-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 
 .events-grid {
