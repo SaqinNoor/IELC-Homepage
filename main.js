@@ -365,3 +365,20 @@ if (menuToggle && mobileMenu) {
         });
     });
 }
+// 10. Map Interaction Logic (Fix custom cursor visibility)
+const mapSection = document.querySelector('.location-section');
+const mapOverlay = document.querySelector('.location-overlay');
+
+if (mapSection && mapOverlay) {
+    mapOverlay.addEventListener('click', () => {
+        mapOverlay.classList.add('hidden');
+        if (cursor) cursor.style.opacity = '0';
+        if (follower) follower.style.opacity = '0';
+    });
+
+    mapSection.addEventListener('mouseleave', () => {
+        mapOverlay.classList.remove('hidden');
+        if (cursor) cursor.style.opacity = '1';
+        if (follower) follower.style.opacity = '1';
+    });
+}
