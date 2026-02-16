@@ -526,6 +526,9 @@ footer {
   font-weight: 800;
   text-transform: uppercase;
   animation: marquee 20s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 @keyframes marquee {
@@ -734,6 +737,14 @@ footer {
   filter: grayscale(100%) invert(1) contrast(1.2);
   /* Stylized map */
   transition: filter 0.5s ease;
+  line-height: 0;
+  font-size: 0;
+}
+
+.location-section iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .location-section:hover {
