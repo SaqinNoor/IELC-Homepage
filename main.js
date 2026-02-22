@@ -4,7 +4,7 @@ import Lenis from '@studio-freight/lenis';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. Initialize Lenis for Smooth Scroll
+// Initialize smooth scrolling
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -23,7 +23,7 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-// 1.1 Smooth Scroll to Anchors (Lenis)
+// Bind smooth scrolling to anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -40,7 +40,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 2. Custom Cursor Logic
+// Custom cursor configuration
 const cursor = document.querySelector('.cursor');
 const follower = document.querySelector('.cursor-follower');
 const interactiveElements = document.querySelectorAll('a, button, .magnetic');
@@ -90,7 +90,7 @@ interactiveElements.forEach(el => {
     el.addEventListener('mouseleave', removeCursorActive);
 });
 
-// 3. Magnetic Effect
+// Magnetic hover effect
 const magnetics = document.querySelectorAll('.magnetic');
 magnetics.forEach((magnetic) => {
     magnetic.addEventListener('mousemove', (e) => {
@@ -116,16 +116,14 @@ magnetics.forEach((magnetic) => {
     });
 });
 
-// 4. Page Transition & Loader Logic
+// Page transition & loader logic
 const hasLoader = document.querySelector('.loader');
 const isTransitionMode = document.documentElement.classList.contains('transition-mode');
 
-// A. Entrance: Handle Page Load
+// Handle page load sequence
 window.addEventListener('load', () => {
     if (isTransitionMode) {
-        // Returning/Navigating: Transition Mode is active (CSS handled initial state)
-
-        // 1. Match GSAP state to CSS state (Covering)
+        // Navigation mode active
         gsap.set('.page-transition', { y: 0 });
         if (hasLoader) gsap.set('.loader', { y: '-100%' });
         gsap.set('.hero-title span', { y: 0, opacity: 1 });
@@ -135,7 +133,7 @@ window.addEventListener('load', () => {
             if (target) el.textContent = target;
         });
 
-        // 2. Remove class to unblock GSAP (remove !important overrides)
+        // Remove CSS overrides after load
         document.documentElement.classList.remove('transition-mode');
 
         // 3. Animate Reveal
@@ -150,8 +148,7 @@ window.addEventListener('load', () => {
         sessionStorage.removeItem('ielc-transition-active');
 
     } else {
-        // First Visit: Loader Sequence
-        // Curtain is hidden by default in CSS, so just play loader
+        // Initial visit loader animation
 
         const tlLoader = gsap.timeline();
         tlLoader
@@ -200,11 +197,9 @@ document.querySelectorAll('a').forEach(link => {
 
         e.preventDefault();
 
-        // 1. Set flag for next page (Inline script will pick this up)
+        // Animate page transitions on navigation
         sessionStorage.setItem('ielc-transition-active', 'true');
-
-        // 2. Animate Cover
-        gsap.set('.page-transition', { y: '100%' }); // Ensure it starts from bottom
+        gsap.set('.page-transition', { y: '100%' });
         gsap.to('.page-transition', {
             y: 0,
             duration: 0.8,
@@ -216,12 +211,11 @@ document.querySelectorAll('a').forEach(link => {
     });
 });
 
-// C. Browser Back/Forward Cache Handling (bfcache)
+// Handle back/forward cache restoration (bfcache)
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-        // Page was restored from cache. ensure curtain is covering then animate reveal
         document.documentElement.classList.remove('transition-mode');
-        gsap.set('.page-transition', { y: 0 }); // Force cover first
+        gsap.set('.page-transition', { y: 0 });
 
         // Ensure loader is hidden too
         const hasLoader = document.querySelector('.loader');
@@ -240,8 +234,7 @@ window.addEventListener('pageshow', (event) => {
     }
 });
 
-// 6. ScrollTriggered Reveal Animations
-// Paragraphs
+// Reveal animations
 document.querySelectorAll('.reveal-paragraph').forEach((p) => {
     gsap.to(p, {
         opacity: 1,
@@ -284,7 +277,7 @@ if (document.querySelector('.moderator-img')) {
     });
 }
 
-// 7. Horizontal Scroll (What We Do)
+// Horizontal scroll (What We Do section)
 if (window.innerWidth > 768) {
     const race = document.querySelector('.pin-wrap');
     if (race) {
@@ -311,7 +304,7 @@ if (window.innerWidth > 768) {
     }
 }
 
-// 8. Nav Change on Scroll
+// Navigation bar state on scroll
 const nav = document.querySelector('.nav');
 if (nav) {
     window.addEventListener('scroll', () => {
@@ -323,7 +316,7 @@ if (nav) {
     });
 }
 
-// 9. Mobile Menu Logic
+// Mobile menu interactions
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileLinks = document.querySelectorAll('.mobile-nav-links > li > a');
@@ -421,7 +414,7 @@ document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
         e.preventDefault();
     });
 });
-// 10. Map Interaction Logic (Fix custom cursor visibility)
+// Interactive map logic
 const mapSection = document.querySelector('.location-section');
 const mapOverlay = document.querySelector('.location-overlay');
 

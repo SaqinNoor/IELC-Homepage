@@ -179,7 +179,6 @@ img {
 
 .loader-logo {
   width: 180px;
-  /* Reduced from 300px */
   height: auto;
   max-width: 60vw;
 }
@@ -188,7 +187,6 @@ img {
   fill: transparent;
   stroke: var(--color-white);
   stroke-width: 1.5px;
-  /* Thinner stroke for refinement */
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
 }
@@ -235,14 +233,11 @@ img {
   z-index: 99999;
   pointer-events: none;
   transform: translateY(-100%);
-  /* Hidden by default, JS will control when to show */
 }
 
-/* Instant Transition States (Handled by Inline Script) */
+/* Instant Transition States */
 html.transition-mode .page-transition {
   transform: translateY(0) !important;
-  /* Force cover immediately */
-  /* Use !important to ensure it overrides default state before JS runs */
 }
 
 html.transition-mode .loader {
@@ -266,9 +261,9 @@ html.transition-mode .hero-title span {
   letter-spacing: 0.1em;
   font-weight: 600;
   border-radius: 50px;
-  background-color: transparent;
+  background-color: #121212;
   color: var(--color-white);
-  border: 1px solid var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -276,6 +271,8 @@ html.transition-mode .hero-title span {
 .back-btn:hover {
   background-color: var(--color-white);
   color: var(--color-black);
+  transform: translateY(-2px);
+  border-color: var(--color-white);
 }
 
 .nav.scrolled {
@@ -401,7 +398,7 @@ html.transition-mode .hero-title span {
   display: none;
 }
 
-/* Sub-dropdown (EC panel) */
+/* Sub-dropdown */
 .nav-subdropdown .sub-chevron {
   transform: rotate(90deg);
   transition: transform 0.3s ease;
@@ -479,19 +476,15 @@ html.transition-mode .hero-title span {
 .mobile-dropdown.active>.mobile-dropdown-menu {
   max-height: 600px;
   margin-top: 1rem;
-  /* Reduced from 1.5rem */
-  /* Space applied only when open */
 }
 
 .mobile-dropdown-menu>li {
   margin-bottom: 0.8rem;
-  /* Added space between entries */
   overflow: visible;
 }
 
 .mobile-dropdown-menu>li:last-child {
   margin-bottom: 1.5rem;
-  /* Extra space at the very bottom of the Pages menu */
 }
 
 .mobile-dropdown-menu>li>a,
@@ -515,7 +508,7 @@ html.transition-mode .hero-title span {
   color: var(--color-red);
 }
 
-/* Outer Pages trigger active state */
+/* Outer trigger active state */
 .mobile-nav-links>.mobile-dropdown.active>.mobile-dropdown-trigger {
   color: var(--color-red);
 }
@@ -524,19 +517,16 @@ html.transition-mode .hero-title span {
 .mobile-subdropdown-menu {
   padding: 0;
   margin-bottom: 1.2rem;
-  /* Added space after children list */
 }
 
 .mobile-subdropdown-menu>li>a {
   display: block;
   text-align: center;
   font-size: 1.1rem !important;
-  /* Smaller text for better fit */
   font-weight: 500 !important;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.6);
   padding: 0.4rem 0;
-  /* Reduced from 0.6rem */
   transition: color 0.3s ease;
 }
 
@@ -557,7 +547,6 @@ html.transition-mode .hero-title span {
   border: none;
   cursor: pointer;
   z-index: 1001;
-  /* Above mobile menu overlay */
   padding: 10px;
 }
 
@@ -574,7 +563,7 @@ html.transition-mode .hero-title span {
   margin-bottom: 0;
 }
 
-/* Hamburger Animation (3 Lines) */
+/* Hamburger Animation */
 .menu-toggle.active .menu-bar:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -614,7 +603,7 @@ html.transition-mode .hero-title span {
   text-align: center;
 }
 
-/* Glide "Pages" word up when menu is open - DISABLED */
+/* Mobile trigger animation fix */
 .mobile-nav-links.dropdown-open>li.mobile-dropdown>.mobile-dropdown-trigger {
   transform: none;
 }
@@ -622,7 +611,6 @@ html.transition-mode .hero-title span {
 .mobile-nav-links li {
   margin-bottom: 2rem;
   overflow: hidden;
-  /* For reveal animation */
 }
 
 .mobile-dropdown-menu li,
@@ -638,7 +626,6 @@ html.transition-mode .hero-title span {
   text-transform: uppercase;
   color: var(--color-white);
   transform: translateY(100%);
-  /* Start hidden */
   transition: color 0.3s ease;
 }
 
@@ -676,7 +663,7 @@ footer {
   padding-top: 8vh;
 }
 
-/* Sub-page hero override — prevents excessive padding from inline styles */
+/* Sub-page hero overrides */
 .hero.subpage-hero {
   min-height: 40vh;
   padding-top: 10vh;
@@ -691,7 +678,6 @@ footer {
 
 .hero-title {
   font-size: clamp(3rem, 12vw, 8.5rem);
-  /* Reduced size */
   font-weight: 800;
   line-height: 0.9;
   text-transform: uppercase;
@@ -712,9 +698,7 @@ footer {
   font-style: italic;
   font-weight: 300;
   padding-right: 0.1em;
-  /* Add space for italic slant */
   margin-right: -0.1em;
-  /* Offset for centering */
 }
 
 .hero-stats {
@@ -780,7 +764,6 @@ footer {
   overflow: hidden;
   white-space: nowrap;
   transform: rotate(-2deg) scale(1.1);
-  /* Unique stylistic tilt */
   z-index: 5;
   border-top: 1px solid var(--color-black);
   border-bottom: 1px solid var(--color-black);
@@ -847,7 +830,6 @@ footer {
 
 /* What We Do - Horizontal Scroll */
 .what-we-do-section {
-  /* No padding, full height container */
   background-color: var(--color-black);
   color: var(--color-white);
   overflow: hidden;
@@ -960,7 +942,6 @@ footer {
   width: 100%;
   aspect-ratio: 3/4;
   object-fit: cover;
-  /* Removed grayscale filter */
   transition: transform 0.5s ease;
 }
 
@@ -1001,7 +982,6 @@ footer {
   height: 50vh;
   z-index: 2;
   filter: grayscale(100%) invert(1) contrast(1.2);
-  /* Stylized map */
   transition: filter 0.5s ease;
   line-height: 0;
   font-size: 0;
@@ -1123,7 +1103,6 @@ footer {
   font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
-  /* Force pointer for buttons even with custom cursor */
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -1179,7 +1158,6 @@ footer {
   justify-content: flex-end;
   padding: 3rem;
   background-color: #000;
-  /* Fallback */
 }
 
 .explore-card-bg {
@@ -1367,7 +1345,7 @@ footer {
     display: none;
   }
 
-  /* Horizontal Scroll fallback for mobile */
+  /* Mobile fallback */
   .pin-wrap-container {
     height: auto;
     overflow: visible;
@@ -1462,7 +1440,6 @@ footer {
 .event-card {
   position: relative;
   border-radius: 12px;
-  /* Slightly rounded */
   overflow: hidden;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1546,7 +1523,6 @@ footer {
 
   .moderator-img {
     aspect-ratio: 1;
-    /* Square on mobile */
   }
 
   .moderator-content blockquote {
@@ -1601,7 +1577,6 @@ footer {
 
 .event-year {
   font-size: 3rem;
-  /* Massive year */
   font-weight: 800;
   color: rgba(255, 255, 255, 0.1);
   line-height: 0.8;
@@ -1625,15 +1600,13 @@ footer {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: auto;
-  /* Push to bottom */
 }
 
-/* Generic Section Title (Legacy of Excellence) */
+/* Section Title */
 .section-title {
   font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: 800;
   margin-bottom: 2rem;
-  /* Increased spacing */
   line-height: 1.1;
   text-transform: uppercase;
   display: inline-block;
@@ -1693,8 +1666,13 @@ footer {
   color: var(--color-white);
 }
 
-.committee-link.active::after,
-.committee-link.active+.committee-link::after {
+/* Hide dividers next to active pill */
+.committee-link.active::after {
+  opacity: 0;
+}
+
+/* Hide the divider of the element BEFORE the active link */
+.committee-link:has(+ .committee-link.active)::after {
   opacity: 0;
 }
 
@@ -1709,9 +1687,7 @@ footer {
     overflow-x: auto;
     padding: 0.3rem;
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
-    /* Firefox */
     justify-content: flex-start;
   }
 
