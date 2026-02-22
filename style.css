@@ -403,7 +403,7 @@ html.transition-mode .hero-title span {
 
 /* Sub-dropdown (EC panel) */
 .nav-subdropdown .sub-chevron {
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
   transition: transform 0.3s ease;
 }
 
@@ -414,8 +414,9 @@ html.transition-mode .hero-title span {
 .nav-subdropdown-menu {
   position: absolute;
   top: -0.5rem;
-  left: 100%;
-  margin-left: 4px;
+  right: 100%;
+  left: auto;
+  margin-right: 4px;
   min-width: 180px;
   transform: translateX(0) translateY(0);
   opacity: 0;
@@ -469,18 +470,28 @@ html.transition-mode .hero-title span {
 .mobile-dropdown-menu {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.4s ease;
   list-style: none;
   padding: 0;
+  margin-top: 0;
 }
 
 .mobile-dropdown.active>.mobile-dropdown-menu {
   max-height: 600px;
+  margin-top: 1rem;
+  /* Reduced from 1.5rem */
+  /* Space applied only when open */
 }
 
-.mobile-dropdown-menu li {
-  margin-bottom: 0;
+.mobile-dropdown-menu>li {
+  margin-bottom: 0.8rem;
+  /* Added space between entries */
   overflow: visible;
+}
+
+.mobile-dropdown-menu>li:last-child {
+  margin-bottom: 1.5rem;
+  /* Extra space at the very bottom of the Pages menu */
 }
 
 .mobile-dropdown-menu>li>a,
@@ -489,8 +500,8 @@ html.transition-mode .hero-title span {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 600;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
   padding: 0.6rem 0;
@@ -498,28 +509,45 @@ html.transition-mode .hero-title span {
   transition: color 0.3s ease;
 }
 
-.mobile-dropdown-menu>li>a:hover,
-.mobile-dropdown-menu>li>.mobile-dropdown-trigger:hover {
+/* Inner active state */
+.mobile-dropdown-menu>li>a:active,
+.mobile-dropdown.active>.mobile-dropdown-trigger {
+  color: var(--color-red);
+}
+
+/* Outer Pages trigger active state */
+.mobile-nav-links>.mobile-dropdown.active>.mobile-dropdown-trigger {
   color: var(--color-red);
 }
 
 /* Mobile Sub-dropdown */
 .mobile-subdropdown-menu {
   padding: 0;
+  margin-bottom: 1.2rem;
+  /* Added space after children list */
 }
 
 .mobile-subdropdown-menu>li>a {
   display: block;
   text-align: center;
-  font-size: 1.6rem !important;
-  font-weight: 600 !important;
-  color: rgba(255, 255, 255, 0.5);
-  padding: 0.5rem 0;
+  font-size: 1.1rem !important;
+  /* Smaller text for better fit */
+  font-weight: 500 !important;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.4rem 0;
+  /* Reduced from 0.6rem */
   transition: color 0.3s ease;
 }
 
-.mobile-subdropdown-menu>li>a:hover {
-  color: var(--color-red);
+.mobile-subdropdown-menu>li>a:active {
+  color: var(--color-white);
+}
+
+@media (hover: hover) {
+  .mobile-subdropdown-menu>li>a:hover {
+    color: var(--color-white);
+  }
 }
 
 /* Mobile Menu Toggle */
@@ -586,10 +614,21 @@ html.transition-mode .hero-title span {
   text-align: center;
 }
 
+/* Glide "Pages" word up when menu is open - DISABLED */
+.mobile-nav-links.dropdown-open>li.mobile-dropdown>.mobile-dropdown-trigger {
+  transform: none;
+}
+
 .mobile-nav-links li {
   margin-bottom: 2rem;
   overflow: hidden;
   /* For reveal animation */
+}
+
+.mobile-dropdown-menu li,
+.mobile-subdropdown-menu li {
+  margin-bottom: 0 !important;
+  overflow: visible;
 }
 
 .mobile-nav-links a {
@@ -603,7 +642,7 @@ html.transition-mode .hero-title span {
   transition: color 0.3s ease;
 }
 
-.mobile-nav-links a:hover {
+.mobile-nav-links a:active {
   color: var(--color-red);
 }
 

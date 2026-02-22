@@ -387,6 +387,18 @@ if (menuToggle && mobileMenu) {
         });
     });
 
+    // Close submenus when empty space in the mobile menu overlay is clicked
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu || e.target.classList.contains('mobile-nav-links')) {
+            document.querySelectorAll('.mobile-dropdown.active').forEach(d => {
+                d.classList.remove('active');
+            });
+            document.querySelectorAll('.mobile-nav-links.dropdown-open').forEach(ul => {
+                ul.classList.remove('dropdown-open');
+            });
+        }
+    });
+
     // Close menu on final link click (not dropdown triggers)
     document.querySelectorAll('.mobile-nav-links a:not(.mobile-dropdown-trigger)').forEach(link => {
         link.addEventListener('click', () => {
