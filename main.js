@@ -326,7 +326,7 @@ if (nav) {
 // 9. Mobile Menu Logic
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+const mobileLinks = document.querySelectorAll('.mobile-nav-links > li > a');
 
 if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', () => {
@@ -343,17 +343,52 @@ if (menuToggle && mobileMenu) {
                 delay: 0.2
             });
         } else {
-            // Reset Links
+            // Reset Links and close all dropdowns
             gsap.to(mobileLinks, {
                 y: '100%',
                 duration: 0.3,
                 ease: 'power3.in'
             });
+            document.querySelectorAll('.mobile-dropdown.active').forEach(d => d.classList.remove('active'));
+            document.querySelectorAll('.mobile-nav-links.dropdown-open').forEach(ul => ul.classList.remove('dropdown-open'));
         }
     });
 
-    // Close menu on link click
-    mobileLinks.forEach(link => {
+    // Mobile Dropdown Toggles — hide siblings when Pages is open
+    document.querySelectorAll('.mobile-nav-links > .mobile-dropdown > .mobile-dropdown-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const parentDropdown = trigger.closest('.mobile-dropdown');
+            const navLinks = trigger.closest('.mobile-nav-links');
+            if (parentDropdown && navLinks) {
+                const isOpening = !parentDropdown.classList.contains('active');
+                parentDropdown.classList.toggle('active');
+                if (isOpening) {
+                    navLinks.classList.add('dropdown-open');
+                } else {
+                    navLinks.classList.remove('dropdown-open');
+                    // Also close any open sub-dropdowns
+                    parentDropdown.querySelectorAll('.mobile-dropdown.active').forEach(d => d.classList.remove('active'));
+                }
+            }
+        });
+    });
+
+    // Sub-dropdown toggles (e.g. EC inside Pages)
+    document.querySelectorAll('.mobile-subdropdown > .mobile-dropdown-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const parentDropdown = trigger.closest('.mobile-dropdown');
+            if (parentDropdown) {
+                parentDropdown.classList.toggle('active');
+            }
+        });
+    });
+
+    // Close menu on final link click (not dropdown triggers)
+    document.querySelectorAll('.mobile-nav-links a:not(.mobile-dropdown-trigger)').forEach(link => {
         link.addEventListener('click', () => {
             menuToggle.classList.remove('active');
             mobileMenu.classList.remove('active');
@@ -362,9 +397,18 @@ if (menuToggle && mobileMenu) {
                 duration: 0.3,
                 ease: 'power3.in'
             });
+            document.querySelectorAll('.mobile-dropdown.active').forEach(d => d.classList.remove('active'));
+            document.querySelectorAll('.mobile-nav-links.dropdown-open').forEach(ul => ul.classList.remove('dropdown-open'));
         });
     });
 }
+
+// Desktop dropdown - prevent default on trigger links
+document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+    });
+});
 // 10. Map Interaction Logic (Fix custom cursor visibility)
 const mapSection = document.querySelector('.location-section');
 const mapOverlay = document.querySelector('.location-overlay');

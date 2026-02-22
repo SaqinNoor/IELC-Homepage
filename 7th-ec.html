@@ -32,7 +32,30 @@
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="events.html">Events</a></li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-dropdown-trigger">Pages <svg class="dropdown-chevron" width="10" height="6"
+                        viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg></a>
+                <ul class="nav-dropdown-menu">
+                    <li class="nav-dropdown nav-subdropdown">
+                        <a href="#" class="nav-dropdown-trigger">EC <svg class="dropdown-chevron sub-chevron" width="8"
+                                height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                        <ul class="nav-dropdown-menu nav-subdropdown-menu">
+                            <li><a href="ec.html">Current EC (9th)</a></li>
+                            <li><a href="8th-ec.html">8th EC</a></li>
+                            <li><a href="7th-ec.html">7th EC</a></li>
+                            <li><a href="6th-ec.html">6th EC</a></li>
+                            <li><a href="5th-ec.html">5th EC</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
         <button class="menu-toggle" aria-label="Toggle Menu">
@@ -45,16 +68,39 @@
     <div class="mobile-menu">
         <ul class="mobile-nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="events.html">Events</a></li>
+            <li class="mobile-dropdown">
+                <a href="#" class="mobile-dropdown-trigger">Pages <svg class="dropdown-chevron" width="14" height="8"
+                        viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg></a>
+                <ul class="mobile-dropdown-menu">
+                    <li class="mobile-dropdown mobile-subdropdown">
+                        <a href="#" class="mobile-dropdown-trigger">EC <svg class="dropdown-chevron" width="12"
+                                height="7" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                        <ul class="mobile-dropdown-menu mobile-subdropdown-menu">
+                            <li><a href="ec.html">Current EC (9th)</a></li>
+                            <li><a href="8th-ec.html">8th EC</a></li>
+                            <li><a href="7th-ec.html">7th EC</a></li>
+                            <li><a href="6th-ec.html">6th EC</a></li>
+                            <li><a href="5th-ec.html">5th EC</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </div>
 
     <a href="index.html" class="back-btn magnetic">← Back to Home</a>
 
-    <section class="hero" style="min-height: 50vh; padding-top: 15vh;">
+    <section class="hero subpage-hero">
         <div class="hero-content">
-            <h1 class="hero-title" style="font-size: clamp(3rem, 10vw, 8rem);">
+            <h1 class="hero-title">
                 <span>Executive</span>
                 <span class="highlight">Committee</span>
             </h1>
