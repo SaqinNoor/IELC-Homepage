@@ -14,6 +14,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html.lenis,
@@ -985,6 +986,7 @@ footer {
   .hero-actions {
     flex-direction: row;
     gap: 1rem;
+    margin-top: 3.5rem;
   }
 
   .explore-grid {
@@ -1484,6 +1486,16 @@ footer {
 
   .marquee-content {
     font-size: 2rem;
+  }
+
+  .hero {
+    padding-top: 0;
+    min-height: 85vh;
+  }
+
+  .hero-content {
+    margin-top: 20vh;
+    margin-bottom: auto;
   }
 
   .hero-title {
