@@ -433,7 +433,7 @@ footer {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  padding-top: 10vh;
+  padding-top: 8vh;
 }
 
 .hero-content {
@@ -444,7 +444,7 @@ footer {
 }
 
 .hero-title {
-  font-size: clamp(3rem, 12vw, 10rem);
+  font-size: clamp(3rem, 12vw, 8.5rem);
   /* Reduced size */
   font-weight: 800;
   line-height: 0.9;
@@ -453,7 +453,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero-title span {
@@ -475,7 +475,7 @@ footer {
   display: flex;
   justify-content: center;
   gap: clamp(1rem, 5vw, 5rem);
-  margin-top: 2rem;
+  margin-top: 1rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50px;
@@ -863,7 +863,7 @@ footer {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 4rem;
+  margin-top: 2.5rem;
   z-index: 10;
   position: relative;
 }
