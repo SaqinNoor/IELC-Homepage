@@ -4,7 +4,7 @@ A website for the **Ideal English Language Club (IELC)**.
 
 ## 🚀 Live Demo
 
-The site is hosted at: [https://SaqinNoor.github.io/IELC-Homepage/](https://SaqinNoor.github.io/IELC-Homepage/)
+The site is hosted at: [https://ielc-homepage.vercel.app/](https://ielc-homepage.vercel.app/)
 
 ## ✨ Features
 
@@ -23,7 +23,7 @@ The site is hosted at: [https://SaqinNoor.github.io/IELC-Homepage/](https://Saqi
 - **Animations**: GSAP, ScrollTrigger
 - **Smooth Scroll**: Lenis
 - **Styling**: CSS (Vanilla)
-- **Deployment**: GitHub Actions + GitHub Pages
+- **Deployment**: Vercel
 
 ## 📦 Getting Started
 
@@ -57,9 +57,9 @@ The site is hosted at: [https://SaqinNoor.github.io/IELC-Homepage/](https://Saqi
 
 ## 🚢 Deployment
 
-This project is configured for automated deployment via **GitHub Actions**. Every push to the `main` branch will automatically:
+This project is configured for automated deployment via **Vercel**. Every push to the `main` branch will automatically:
 1.  Run the build process.
-2.  Deploy the static files to the `gh-pages` environment.
+2.  Deploy the static files to the production environment.
 
 ## 📝 License
 
