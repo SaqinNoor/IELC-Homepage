@@ -120,7 +120,7 @@ img {
   background: radial-gradient(circle, rgba(230, 57, 70, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   filter: blur(80px);
   animation: float 20s infinite alternate ease-in-out;
   opacity: 0.6;
@@ -1212,7 +1212,7 @@ footer {
 /* Executive Committee Section */
 .ec-section {
   padding-bottom: 10rem;
-  background-color: var(--color-black);
+  /* background-color: var(--color-black); */
   color: var(--color-white);
   min-height: 100vh;
   position: relative;
@@ -1371,7 +1371,7 @@ footer {
 /* Events Section */
 .events-section {
   padding-bottom: 10rem;
-  background-color: var(--color-black);
+  /* background-color: var(--color-black); */
   color: var(--color-white);
   min-height: 100vh;
   position: relative;
