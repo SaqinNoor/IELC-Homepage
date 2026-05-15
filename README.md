@@ -30,7 +30,8 @@ The site is hosted at: [https://ielc-homepage.vercel.app/](https://ielc-homepage
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18 or higher)
-- [npm](https://www.npmjs.com/)
+- [pnpm](https://pnpm.io/)
+- [Python](https://www.python.org/) & [uv](https://docs.astral.sh/uv/) (for running auxiliary scripts)
 
 ### Installation
 
@@ -42,18 +43,28 @@ The site is hosted at: [https://ielc-homepage.vercel.app/](https://ielc-homepage
 
 2.  **Install dependencies**:
     ```bash
-    npm install
+    pnpm install
     ```
 
 3.  **Run locally**:
     ```bash
-    npm run dev
+    pnpm run dev
     ```
 
 4.  **Build for production**:
     ```bash
-    npm run build
+    pnpm run build
     ```
+
+### Running Utility Scripts
+
+The repository includes Python scripts for optimizing assets. You can run them using `uv`:
+
+```bash
+uv run convert_to_webp.py
+uv run optimize_html_images.py
+uv run update_references.py
+```
 
 ## 🚢 Deployment
 
