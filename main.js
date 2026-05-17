@@ -418,9 +418,23 @@ document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
 // Interactive map logic
 const mapSection = document.querySelector('.location-section');
 const mapOverlay = document.querySelector('.location-overlay');
+const mapIframe = mapSection ? mapSection.querySelector('iframe') : null;
 
-if (mapSection && mapOverlay) {
+if (mapSection && mapOverlay && mapIframe) {
+    const loadMap = () => {
+        if (mapIframe.src === 'about:blank' || !mapIframe.src) {
+            const dataSrc = mapIframe.getAttribute('data-src');
+            if (dataSrc) {
+                mapIframe.src = dataSrc;
+            }
+        }
+    };
+
+    // Load the map on overlay hover or click to defer 500KB of blocking scripts
+    mapOverlay.addEventListener('mouseenter', loadMap, { once: true });
+    
     mapOverlay.addEventListener('click', () => {
+        loadMap();
         mapOverlay.classList.add('hidden');
         if (cursor) cursor.style.opacity = '0';
         if (follower) follower.style.opacity = '0';
