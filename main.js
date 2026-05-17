@@ -41,54 +41,55 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Custom cursor configuration
-const cursor = document.querySelector('.cursor');
-const follower = document.querySelector('.cursor-follower');
-const interactiveElements = document.querySelectorAll('a, button, .magnetic');
+let cursor = null;
+let follower = null;
 
-let posX = 0, posY = 0;
-let mouseX = 0, mouseY = 0;
+if (window.matchMedia('(hover: hover)').matches) {
+    cursor = document.querySelector('.cursor');
+    follower = document.querySelector('.cursor-follower');
+    const interactiveElements = document.querySelectorAll('a, button, .magnetic');
 
-gsap.to({}, {
-    duration: 0.016,
-    repeat: -1,
-    onRepeat: () => {
+    let posX = 0, posY = 0;
+    let mouseX = 0, mouseY = 0;
+
+    // Optimized GSAP ticker loop (direct transform manipulation)
+    gsap.ticker.add(() => {
         posX += (mouseX - posX) / 9;
         posY += (mouseY - posY) / 9;
 
-        gsap.set(follower, {
-            css: {
-                left: posX,
-                top: posY
-            }
-        });
+        if (follower) {
+            follower.style.transform = `translate3d(${posX}px, ${posY}px, 0) translate(-50%, -50%)`;
+        }
+        if (cursor) {
+            cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+        }
+    });
 
-        gsap.set(cursor, {
-            css: {
-                left: mouseX,
-                top: mouseY
-            }
-        });
-    }
-});
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
 
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
+    const addCursorActive = () => {
+        if (cursor) cursor.classList.add('active');
+        if (follower) follower.classList.add('active');
+    };
+    const removeCursorActive = () => {
+        if (cursor) cursor.classList.remove('active');
+        if (follower) follower.classList.remove('active');
+    };
 
-const addCursorActive = () => {
-    cursor.classList.add('active');
-    follower.classList.add('active');
-};
-const removeCursorActive = () => {
-    cursor.classList.remove('active');
-    follower.classList.remove('active');
-};
-
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', addCursorActive);
-    el.addEventListener('mouseleave', removeCursorActive);
-});
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', addCursorActive);
+        el.addEventListener('mouseleave', removeCursorActive);
+    });
+} else {
+    // Explicitly hide elements on non-hover devices (mobile/touch screens)
+    const cursorEl = document.querySelector('.cursor');
+    const followerEl = document.querySelector('.cursor-follower');
+    if (cursorEl) cursorEl.style.display = 'none';
+    if (followerEl) followerEl.style.display = 'none';
+}
 
 // Magnetic hover effect
 const magnetics = document.querySelectorAll('.magnetic');
@@ -313,7 +314,7 @@ if (nav) {
         } else {
             nav.classList.remove('scrolled');
         }
-    });
+    }, { passive: true });
 }
 
 // Mobile menu interactions
@@ -431,3 +432,22 @@ if (mapSection && mapOverlay) {
         if (follower) follower.style.opacity = '1';
     });
 }
+
+// Global image load handler for smooth fade-in reveals
+function initImageFadeIn() {
+    // Handle images that loaded before JS initialized (e.g. from cache)
+    document.querySelectorAll('img').forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        }
+    });
+
+    // Use capture phase listener to smoothly catch lazy-loaded images as they finish loading
+    document.addEventListener('load', (e) => {
+        if (e.target.tagName === 'IMG') {
+            e.target.classList.add('loaded');
+        }
+    }, true);
+}
+initImageFadeIn();
+
