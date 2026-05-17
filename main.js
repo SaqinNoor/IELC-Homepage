@@ -422,7 +422,7 @@ const mapIframe = mapSection ? mapSection.querySelector('iframe') : null;
 
 if (mapSection && mapOverlay && mapIframe) {
     const loadMap = () => {
-        if (mapIframe.src === 'about:blank' || !mapIframe.src) {
+        if (!mapIframe.src || mapIframe.src === 'about:blank' || mapIframe.src === window.location.href) {
             const dataSrc = mapIframe.getAttribute('data-src');
             if (dataSrc) {
                 mapIframe.src = dataSrc;
@@ -430,9 +430,18 @@ if (mapSection && mapOverlay && mapIframe) {
         }
     };
 
-    // Load the map on overlay hover or click to defer 500KB of blocking scripts
-    mapOverlay.addEventListener('mouseenter', loadMap, { once: true });
-    
+    // Pre-load the iframe 800px before it enters the viewport so it's
+    // ready by the time the user scrolls to it — no visible blank period.
+    const mapObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            loadMap();
+            mapObserver.disconnect();
+        }
+    }, { rootMargin: '800px 0px' });
+
+    mapObserver.observe(mapSection);
+
+    // Click overlay to unlock full interaction
     mapOverlay.addEventListener('click', () => {
         loadMap();
         mapOverlay.classList.add('hidden');
