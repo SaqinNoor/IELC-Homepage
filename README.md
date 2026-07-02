@@ -4,7 +4,7 @@ A website for the **Ideal English Language Club (IELC)**.
 
 ## 🚀 Live Demo
 
-The site is hosted at: [https://ielc.saqinnoor.dpdns.org/](https://ielc.saqinnoor.dpdns.org/)
+The site is hosted at: [https://ielc-homepage.vercel.app/](https://ielc-homepage.vercel.app/)
 
 ## ✨ Features
 
