@@ -20,6 +20,7 @@ const pages = [
 const urls = pages.map(p => `  <url>
     <loc>${SITE_URL}${p.path}</loc>
     <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>${p.priority}</priority>
   </url>`).join('\n');
 
